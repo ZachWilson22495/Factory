@@ -1,0 +1,15 @@
+@model Factory.Models.Machine
+
+<h4>Please fill in Machine Details below</h4>
+
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.MachineName)
+  @Html.TextBoxFor(model => model.MachineName)
+
+  @Html.LabelFor(model => model.MachineDetails)
+  @Html.EditorFor(model => model.MachineDetails)
+
+  <input type="submit" value="Add new machine" class="btn btn-default" />
+}
+<p>@Html.ActionLink("Show all machines", "Index")</p>
