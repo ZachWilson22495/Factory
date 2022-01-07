@@ -1,14 +1,14 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace Clinic.Models
+namespace Factory.Models
 {
-  public class ClinicContext : DbContext
+  public class FactoryContext : DbContext
   {
-    public DbSet<Doctor> Doctors { get; set; }
-    public DbSet<Patient> Patients { get; set; }
-    public DbSet<DoctorPatient> DoctorPatient { get; set; }
+    public DbSet<Engineer> Engineers { get; set; }
+    public DbSet<Machine> Machines { get; set; }
+    public DbSet<EngineerMachine> EngineerMachine { get; set; }
 
-    public ClinicContext(DbContextOptions options) : base(options) { }
+    public FactoryContext(DbContextOptions options) : base(options) { }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
