@@ -3,22 +3,22 @@ using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
 using System.IO;
 
-namespace Clinic.Models
+namespace Factory.Models
 {
-  public class ClinicContextFactory : IDesignTimeDbContextFactory<ClinicContext>
+  public class FactoryContextFactory : IDesignTimeDbContextFactory<FactoryContext>
   {
-    ClinicContext IDesignTimeDbContextFactory<ClinicContext>.CreateDbContext(string[] args)
+    FactoryContext IDesignTimeDbContextFactory<FactoryContext>.CreateDbContext(string[] args)
     {
       IConfigurationRoot configuration = new ConfigurationBuilder()
         .SetBasePath(Directory.GetCurrentDirectory())
         .AddJsonFile("appsettings.json")
         .Build();
 
-      var builder = new DbContextOptionsBuilder<ClinicContext>();
+      var builder = new DbContextOptionsBuilder<FactoryContext>();
 
       builder.UseMySql(configuration["ConnectionStrings:DefaultConnection"], ServerVersion.AutoDetect(configuration["ConnectionStrings:DefaultConnection"]));
 
-      return new ClinicContext(builder.Options);
+      return new FactoryContext(builder.Options);
     }
   }
 }
