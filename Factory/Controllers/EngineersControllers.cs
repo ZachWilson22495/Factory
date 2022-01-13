@@ -27,9 +27,9 @@ namespace Factory.Controllers
     }
 
     [HttpPost]
-    public ActionResult Create(Engineer doctor)
+    public ActionResult Create(Engineer engineer)
     {
-      _db.Engineers.Add(doctor);
+      _db.Engineers.Add(engineer);
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
@@ -37,36 +37,36 @@ namespace Factory.Controllers
     public ActionResult Details(int id)
     {
       var thisEngineer = _db.Engineers
-          .Include(doctor => doctor.JoinEntities)
+          .Include(engineer => engineer.JoinEntities)
           .ThenInclude(join => join.Machine)
-          .FirstOrDefault(doctor => doctor.EngineerId == id);
+          .FirstOrDefault(engineer => engineer.EngineerId == id);
       return View(thisEngineer);
     }
     
     public ActionResult Edit(int id)
     {
-      var thisEngineer = _db.Engineers.FirstOrDefault(doctor => doctor.EngineerId == id);
+      var thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id);
       return View(thisEngineer);
     }
 
     [HttpPost]
-    public ActionResult Edit(Engineer doctor)
+    public ActionResult Edit(Engineer engineer)
     {
-      _db.Entry(doctor).State = EntityState.Modified;
+      _db.Entry(engineer).State = EntityState.Modified;
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
 
     public ActionResult Delete(int id)
     {
-      var thisEngineer = _db.Engineers.FirstOrDefault(doctor => doctor.EngineerId == id);
+      var thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id);
       return View(thisEngineer);
     }
 
     [HttpPost, ActionName("Delete")]
     public ActionResult DeleteConfirmed(int id)
     {
-      var thisEngineer = _db.Engineers.FirstOrDefault(doctor => doctor.EngineerId == id);
+      var thisEngineer = _db.Engineers.FirstOrDefault(engineer => engineer.EngineerId == id);
       _db.Engineers.Remove(thisEngineer);
       _db.SaveChanges();
       return RedirectToAction("Index");

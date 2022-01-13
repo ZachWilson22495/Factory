@@ -30,17 +30,14 @@ _A webpage developed by personal request of the world renowned (And nonexistant)
 }
 
 * Download MySQL and MySQL Workbench to set up a local database
-* Once installed, open MyMql Workbench and open a local server
-* In the Navigator, select the Administration tab and then select Data Import/Restore
-* Under Import Options, select Import From Self-Contained File, and then select the "zach_wilson.sql" file which can be found in Factory.Solution
-* In the Default Schema to be Imported To option, select New
-* Enter the name 'zach_wilson' for your database and select OK
-* Click Start Import to begin database import
+* Once installed, open MySQL Workbench and open a local server
+
+* Navigate to the project folder in VS code and access your terminal. Type 'dotnet ef database update' to create your database on MySQL
 
 * Run 'dotnet restore' in your terminal to install bin & obj folders.
 
 * Use your terminal to navigate back to 'Factory.Solution/Factory' and run 'dotnet run' to activate application.
-* Use the user interface provided by the webpage to manage stylists and clients.
+* Use the user interface provided by the webpage to manage your engineers and machines.
 
 ## Known Bugs
 
